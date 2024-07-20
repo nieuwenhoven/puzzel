@@ -2,13 +2,13 @@ const staticPyPWA = "puzzel"
 const assets = [
     // "",
     // "/",
-    "/puzzel.css",
-    "/puzzel.js",
-    "/marloes_en_frans.jpg",
-    "/pwa-scaffold.js",
-    "/serviceWorker.js",
-    "/icons/icon-192x192.png",
-    "/icons/icon-512x512.png",
+    "/puzzel/puzzel.css",
+    "/puzzel/puzzel.js",
+    "/puzzel/marloes_en_frans.jpg",
+    "/puzzel/pwa-scaffold.js",
+    "/puzzel/serviceWorker.js",
+    "/puzzel/icons/icon-192x192.png",
+    "/puzzel/icons/icon-512x512.png",
 ]
 
 self.addEventListener("install", installEvent => {
