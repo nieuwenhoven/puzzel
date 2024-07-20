@@ -5,30 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moeder's puzzel</title>
   <link rel="stylesheet" href="puzzel.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
 </head>
 
 <body>
+  <aside>
+    <ul id="menu">
+      <li>&#x2630;</li>
+      <li>Marloes & Frans</li>
+      <li>kies foto</li>
+      <li>&nbsp;
+        <select id="shape" hidden>
+          <option value="1" selected>klassiek</option>
+          <option value="2">driehoek</option>
+          <option value="3">rond</option>
+          <option value="4">recht</option>
+        </select>
+      </li>
+      <li>12 stukjes</li>
+      <li>25 stukjes</li>
+      <li>50 stukjes</li>
+      <li>100 stukjes</li>
+      <li>200 stukjes</li>
+    </ul>
+  </aside>
   <div class="inhoud">
     <main>
       <div id=forPuzzle></div>
-      <ul id="menu">
-        <li>&#x2630;</li>
-        <li>default image</li>
-        <li>load image</li>
-        <li>&nbsp;
-          <select id="shape" hidden>
-            <option value="1" selected>klassiek</option>
-            <option value="2">driehoek</option>
-            <option value="3">rond</option>
-            <option value="4">recht</option>
-          </select>
-        </li>
-        <li>12 stukjes</li>
-        <li>25 stukjes</li>
-        <li>50 stukjes</li>
-        <li>100 stukjes</li>
-        <li>200 stukjes</li>
-      </ul>
+      <img id="preview">
   </div>
   </main>
   <script src="puzzel.js"></script>

@@ -7,6 +7,19 @@ body {
     cursor: pointer;
 }
 
+aside {
+    float: right;
+    padding-right: 1rem;
+}
+
+#preview {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    max-width: 15vw;
+    max-height: 10vh;
+}
+
 #menu {
     position: relative;
     list-style-type: none;
@@ -31,13 +44,17 @@ body {
 #forPuzzle {
     position: absolute;
     width: 100dvw;
+    width: 100vw;
     height: 100dvh;
+    height: 100vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #1c1c1c;
     overflow: hidden;
 }
+
+
 
 .polypiece {
     display: block;
