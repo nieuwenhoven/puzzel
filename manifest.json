@@ -4,7 +4,7 @@
     "start_url": "/puzzel",
     "display": "standalone",
     "background_color": "#161616",
-    "theme_color": "#046b37",
+    "theme_color": "#060606",
     "orientation": "landscape-primary",
     "icons": [
       {

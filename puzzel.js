@@ -754,8 +754,8 @@ class Puzzle {
     let styl = window.getComputedStyle(this.container)
 
     /* dimensions of container */
-    this.contWidth = parseFloat(styl.width) * 0.8
-    this.contHeight = parseFloat(styl.height) * 0.8
+    this.contWidth = parseFloat(styl.width) * 0.7
+    this.contHeight = parseFloat(styl.height) * 0.7
 
     // FvN: De factor 0.8 zorgt ervoor dat er wat meer ruimte is om nog
     // te leggen stukken uit het centrum te plaatsen. 
@@ -1158,8 +1158,11 @@ let loadFile
   } // loadFile
 } //  // scope for loadFile
 
+function loadRandomFile() {
+  puzzle.srcImage.src = `https://picsum.photos/id/${Math.ceil(Math.random() * 1000)}/800`
+}
+
 function loadInitialFile() {
-  // puzzle.srcImage.src = "https://assets.codepen.io/2574552/Mona_Lisa.jpg"
   previewUit()
   puzzle.srcImage.src = "marloes_en_frans.jpg"
 }
@@ -1464,10 +1467,11 @@ let menu = (function () {
     if (menu.opened) menu.close(); else menu.open()
   })
   menu.items[1].element.addEventListener("click", loadInitialFile)
-  menu.items[2].element.addEventListener("click", loadFile)
-  menu.items[3].element.addEventListener("click", () => { })
-  for (let k = 4; k < menu.items.length; ++k) {
-    menu.items[k].element.addEventListener("click", () => events.push({ event: "nbpieces", nbpieces: [12, 25, 50, 100, 200][k - 4] }))
+  menu.items[2].element.addEventListener("click", loadRandomFile)
+  menu.items[3].element.addEventListener("click", loadFile)
+  menu.items[4].element.addEventListener("click", () => { })
+  for (let k = 5; k < menu.items.length; ++k) {
+    menu.items[k].element.addEventListener("click", () => events.push({ event: "nbpieces", nbpieces: [12, 25, 50, 100][k - 5] }))
   }
   return menu
 })()
