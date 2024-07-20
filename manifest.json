@@ -1,7 +1,7 @@
 {
     "name": "Moeder's puzzel",
     "short_name": "puzzel",
-    "start_url": "/",
+    "start_url": "/puzzel",
     "display": "standalone",
     "background_color": "#161616",
     "theme_color": "#046b37",

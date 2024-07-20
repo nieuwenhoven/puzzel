@@ -1,4 +1,4 @@
-const staticPyPWA = "dev-pypwa-v4"
+const staticPyPWA = "puzzel"
 const assets = [
     // "",
     // "/",
