@@ -1,7 +1,8 @@
 const staticPyPWA = "puzzel"
 const assets = [
     // "",
-    // "/",
+    "/puzzel",
+    "/puzzel/index.html",
     "/puzzel/puzzel.css",
     "/puzzel/puzzel.js",
     "/puzzel/marloes_en_frans.jpg",
@@ -23,6 +24,7 @@ self.addEventListener("install", installEvent => {
 })
 
 self.addEventListener("fetch", fetchEvent => {
+    console.log('Fetch event for ', event.request.url)
     fetchEvent.respondWith(
         caches.match(fetchEvent.request).then(res => {
             return res || fetch(fetchEvent.request)
