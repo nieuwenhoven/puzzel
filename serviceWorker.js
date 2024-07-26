@@ -1,9 +1,7 @@
-const staticPyPWA = "puzzel-v240726e"   // verander versie voor iedere nieuwe release
+const staticPyPWA = "v240726g"   // verander versie voor iedere nieuwe release
 const assets = [
-    // "",
-    // "/puzzel",
+    "/puzzel",
     "/puzzel/index.html",
-    "puzzel/puzzel.css",
     "/puzzel/puzzel.css",
     "/puzzel/puzzel.js",
     "/puzzel/marloes_en_frans_kleur.png",
@@ -25,7 +23,7 @@ self.addEventListener("install", installEvent => {
 })
 
 self.addEventListener('activate', event => {
-    const cacheWhitelist = [staticPyPWA]  // behoud alleen de nieuwe cache
+    const cacheWhitelist = [staticPyPWA]  // behoud alleen de cache van deze versie
 
     event.waitUntil(
         caches.keys().then(cacheNames => {
@@ -43,11 +41,30 @@ self.addEventListener('activate', event => {
     )
   })
 
-self.addEventListener("fetch", fetchEvent => {
-    console.log('Fetch event for ', fetchEvent.request.url)
-    fetchEvent.respondWith(
-        caches.match(fetchEvent.request).then(res => {
-            return res || fetch(fetchEvent.request)
-        }).catch(err => console.log("Cache fetch error: ", err))
-    )
-})
+self.addEventListener("fetch", (event) => {
+    event.respondWith(
+      caches.match(event.request).then((response) => {
+        // caches.match() always resolves
+        // but in case of success response will have value
+        if (response !== undefined) {
+          console.log(`fetch voor ${event.request.url} geleverd uit cache`)
+          return response;
+        } else {
+          return fetch(event.request)
+            .then((response) => {
+              console.log(`fetch voor ${event.request.url} van server, opslaan in cache ${staticPyPWA}`)
+              // response may be used only once
+              // we need to save clone to put one copy in cache
+              // and serve second one
+              let responseClone = response.clone();
+  
+              caches.open(staticPyPWA).then((cache) => {
+                cache.put(event.request, responseClone);
+              });
+              return response;
+            })
+            // .catch(() => caches.match("/gallery/myLittleVader.jpg"));
+        }
+      }),
+    );
+  });
