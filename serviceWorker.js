@@ -1,7 +1,7 @@
 const staticPyPWA = "puzzel-v240726c"   // verander versie voor iedere nieuwe release
 const assets = [
     // "",
-    "/puzzel",
+    // "/puzzel",
     "/puzzel/index.html",
     "/puzzel/puzzel.css",
     "/puzzel/puzzel.js",
