@@ -1,4 +1,4 @@
-const staticPyPWA = "puzzel-v240726b"   // verander versie voor iedere nieuwe release
+const staticPyPWA = "puzzel-v240726c"   // verander versie voor iedere nieuwe release
 const assets = [
     // "",
     "/puzzel",
@@ -43,7 +43,7 @@ self.addEventListener('activate', event => {
   })
 
 self.addEventListener("fetch", fetchEvent => {
-    console.log('Fetch event for ', event.request.url)
+    console.log('Fetch event for ', fetchEvent.request.url)
     fetchEvent.respondWith(
         caches.match(fetchEvent.request).then(res => {
             return res || fetch(fetchEvent.request)
