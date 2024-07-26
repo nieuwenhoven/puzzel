@@ -1,4 +1,4 @@
-const staticPyPWA = "puzzel"
+const staticPyPWA = "puzzel-v240726a"   // verander versie voor iedere nieuwe release
 const assets = [
     // "",
     "/puzzel",
@@ -24,7 +24,22 @@ self.addEventListener("install", installEvent => {
 })
 
 self.addEventListener('activate', event => {
-    event.waitUntil(self.clients.claim())
+    const cacheWhitelist = [staticPyPWA]  // behoud alleen de nieuwe cache
+
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (!cacheWhitelist.includes(cacheName)) {
+                        console.log(`Deleting old cache: ${cacheName}`)
+                        return caches.delete(cacheName)
+                    }
+                })
+            )
+        }).then(() => {
+            return self.clients.claim()
+        })
+    )
   })
 
 self.addEventListener("fetch", fetchEvent => {
