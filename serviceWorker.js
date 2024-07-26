@@ -1,11 +1,11 @@
-const staticPyPWA = "puzzel-v240726a"   // verander versie voor iedere nieuwe release
+const staticPyPWA = "puzzel-v240726b"   // verander versie voor iedere nieuwe release
 const assets = [
     // "",
     "/puzzel",
     "/puzzel/index.html",
     "/puzzel/puzzel.css",
     "/puzzel/puzzel.js",
-    "/puzzel/marloes_en_frans.jpg",
+    "/puzzel/marloes_en_frans_kleur.png",
     "/puzzel/pwa-scaffold.js",
     "/puzzel/serviceWorker.js",
     "/puzzel/icons/icon-192x192.png",

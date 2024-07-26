@@ -1164,7 +1164,7 @@ function loadRandomFile() {
 
 function loadInitialFile() {
   previewUit()
-  puzzle.srcImage.src = "marloes_en_frans.jpg"
+  puzzle.srcImage.src = "marloes_en_frans_kleur.png"
 }
 //-----------------------------------------------------------------------------
 function imageLoaded(puzzle) {
